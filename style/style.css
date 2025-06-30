@@ -1,0 +1,67 @@
+body {
+	margin: 0;
+	background-image: url("../images/bg-poker.jpg");
+	background-color: #2d4f12;
+	height: 100vh;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  }
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto max-content auto;
+	grid-template-rows: 9fr 1fr;
+	height: 100vh;
+	gap: 10px;
+}
+
+/*** CARD DISPLAY ***/
+
+#card-display {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+#card-display img {
+	height: 70vh;
+	border-radius: 20px;
+  	box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+#card-display img.empty {
+	opacity: .2;
+	box-shadow: none;
+	border: 2px solid #000;
+}
+
+/*** BOTTOM NAVBAR ***/
+
+.nav-bottom {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.nav-bottom ul {
+	width: 100%;
+	background-color: #f3f3f3;
+	display: flex;
+	gap: 30px;
+	list-style: none;
+	justify-content: center;
+	padding: 20px 30px;
+	border-radius: 20px;
+	box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nav-bottom ul img {
+	height: 30px;
+}
+
+.nav-divider {
+	border-left: 1px solid #fff;
+	border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
