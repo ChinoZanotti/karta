@@ -1,6 +1,11 @@
-const palos = ["a", "b", "c", "d"]; //aca se definen los palos o grupos que hay dentro del deck
-const valores = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"]//acá se definen los valores que tienen cada palo
-let mazo = []; //se crea una array "mazo" vacío
+//aca se definen los palos o grupos que hay dentro del deck
+const palos = ["a", "b", "c", "d"];
+
+//acá se definen los valores que tienen cada palo
+const valores = Array.from({ length: 14 }, (_, i) => String(i + 1).padStart(2, "0")); 
+
+//se crea una array "mazo" vacío
+let mazo = []; 
 
 const drawBtn = document.getElementById("drawBtn");
 const shuffleResetBtn = document.getElementById("shuffleResetBtn");
