@@ -1,23 +1,24 @@
-const palos = ["a", "b", "c", "d"]; //se definen los palos o grupos que hay dentro del deck
-let deck = []; //se crea una variable "deck" vacía
+const palos = ["a", "b", "c", "d"]; //aca se definen los palos o grupos que hay dentro del deck
+const valores = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"]//acá se definen los valores que tienen cada palo
+let mazo = []; //se crea una array "mazo" vacío
 
 const drawBtn = document.getElementById("drawBtn");
 const shuffleResetBtn = document.getElementById("shuffleResetBtn");
 
-const reset = () => {
-	deck = []; //se eliminan todos los elementos de la variable deck
-	for (const palo of palos) {
-		for (let i = 1 ; i <= 14 ; i++) {
-			const numero = i.toString().padStart(2,"0");
-			deck.push(`images/card-${palo}-${numero}.jpg`);
-		}
-	}
+//aca se crea el mazo combinando los palos y valores
+const crearMazo = () => {
+	return palos.flatMap(palo => 
+		valores.map(valor => `images/card-${palo}-${valor}.jpg`))
 };
+
+const reset = () => {
+	mazo = crearMazo();
+}
 
 const draw = () => {
 	const card = document.getElementById("cardOnTable");
-	if (deck.length > 0) {
-		card.src = deck.pop(); // suponiendo que el deck guarda solo las rutas
+	if (mazo.length > 0) {
+		card.src = mazo.pop();
 	  	} else {
 	    card.src = "images/card-empty.jpg";
 	    card.classList.add("empty");
@@ -25,12 +26,12 @@ const draw = () => {
 };
 
 const shuffle = () => {
-	deck.sort(() => 0.5 - Math.random());
+	mazo.sort(() => 0.5 - Math.random());
 	const card = document.getElementById("cardOnTable");
 	card.src = "images/card-0.jpg";
 };
 
-drawBtn.addEventListener("click", draw);//para robar una carta del deck
+drawBtn.addEventListener("click", draw); //para robar una carta del deck
 
 shuffleResetBtn.addEventListener("click", () => {
 	reset();
